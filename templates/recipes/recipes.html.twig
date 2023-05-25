@@ -1,0 +1,60 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+
+<!--TODO: search box -->
+{% if form is defined %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Submit </button>
+    {{ form_end(form) }}
+{% endif %}
+<!--Bootstrap grid system for displaying recipes -->
+        <div class="container-md">
+            <div class="row align-items-center">
+            {% for recipe in recipes %}
+                <div class="col-sm-4">
+                    <!--<input type="text" hidden value={{recipe.id}} id="recipe-id"/>-->
+                    <div class="col-sm image-column">
+                            <img src="{{ recipe.image }}" alt="" class="recipe-images" height="250">   
+                    </div>
+                    <div class="col-sm">
+                            <h1 class="name"> {{ recipe.name }}</h1>
+                    </div>
+                    <div class="col-sm">
+                            <p class="recipe-rating">RATING: {{ recipe.rating }}</p>
+                    </div>
+
+                        <!--TODO: Create form for checkboxes -->
+                    <div class="lunch-dinner-checkbox-form">
+                        <input class="lunch-checkbox" type="checkbox" name="lunch-checkbox" data-id="{{recipe.id}}">
+                         <label class="form-check-label" for="flexCheckDisabled">
+                            Lunch
+                         </label>
+                         <input class="checkbox" type="checkbox" name="dinner-checkbox" value="" id="dinner-checkbox">Dinner</input>
+                    </div>
+                    
+                        <!--Recipe button -->
+                     <div class="p-3 d-flex justify-content-center">
+                        <a href="/recipes/recipeSteps" class="button-recipe" role="button" aria-pressed="true">RECIPE</a>
+                    </div>
+                        <!--Edit link -->
+                    <div class="d-flex justify-content-center edit-recipe-tag">
+                        <a href="/recipes/edit/{{ recipe.id }}"> EDIT </a>
+                    </div>
+
+                </div>    
+            {% endfor %}       
+            </div> 
+        </div>      
+    </div>
+
+    <!--Add Recipe Button and TO DO: load more link -->
+    <div class="p-5 d-flex justify-content-center">
+        <a href="/recipes/add" class="button-add add-button-and-load-more" role="button" aria-pressed="true">ADD</a>
+        <!--<a href="#" class="load-more add-button-and-load-more">LOAD MORE...</a> -->
+    </div>
+
+    <!--TODO: Load More.. Link -->
+
+{% endblock %}

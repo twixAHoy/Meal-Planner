@@ -1,0 +1,9 @@
+add_new_ingredient:
+  path: /shoppingList/addNew
+  methods: POST
+  controller: App\Controller\ShoppingListController::addNewIngredientUsingAjax
+
+delete_ingredient_from_shopping_list:
+  path: /shoppingList/delete/{id}
+  methods: POST
+  controller: App\Controller\ShoppingListController::deleteIngredientFromShoppingList

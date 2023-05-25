@@ -1,0 +1,159 @@
+/*@import "node_modules/bootstrap/scss/bootstrap";*/
+
+/*.search-box {
+  margin-top: 100px;
+  margin-left: 10px;
+}
+*/
+.container-md {
+  margin-top: 75px;
+}
+
+.recipe-images {
+  width: 300px;
+  border-radius: 8px;
+  margin: 20px 80px 10px;
+  margin-top: 20px;
+}
+
+.name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.recipe-description {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  text-align: center;
+}
+
+.recipe-rating {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-recipe {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 650px 8px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.checkbox {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.button-add {
+  background-color: white;
+  border-style: solid;
+  border-color: #4caf50;
+  border-width: thick;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 650px 8px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+/*Edit screen*/
+
+.edit-screen-image {
+  border-radius: 8px;
+  width: 600px;
+  height: 550px;
+  position: relative;
+  margin: 40px 450px 20px; //top left bottom right
+}
+
+.recipe-name-text-box-edit {
+  font-family: "Rubik Mono One", sans-serif;
+  width: 25%;
+  padding: 12px 20px;
+  margin: 20px 500px 8px;
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid rgb(148, 147, 147);
+  box-sizing: border-box;
+}
+
+.recipe-name-text-box-edit:hover {
+  opacity: 0.3;
+}
+
+.recipe-text-area-box-edit {
+  font-family: "IBM Plex Mono", monospace;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 500px 8px;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  border-bottom: 2px solid rgb(148, 147, 147);
+  box-sizing: border-box;
+}
+
+.recipe-text-area-box-edit:hover {
+  opacity: 0.3;
+}
+
+.rating-edit {
+  padding: 12px 20px;
+  margin: 8px 500px 8px;
+  display: inline-block;
+}
+
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 650px 8px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.button-delete {
+  background-color: rgb(248, 63, 63);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 650px 8px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.lunch-dinner-checkbox-form {
+  margin-left: 100px;
+}
+/*navbar*/
+
+/* Overriding bootstrap using Sass
+
+.btn-success {
+  position: absolute;
+}
+*/

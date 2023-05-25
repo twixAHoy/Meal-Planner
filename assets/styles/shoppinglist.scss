@@ -1,0 +1,50 @@
+#shopping-list-container-1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+input .shopping-list-ingredient-name,
+input #shopping-list-checkbox-1 {
+  display: inline;
+}
+
+input.shopping-list-ingredient-name {
+  border: none;
+}
+
+#shopping-list-container-1 #shopping-list-h1-tag {
+  margin-top: 200px;
+  text-align: center;
+  display: flex;
+  position: relative;
+}
+
+#shopping-list-container-2 {
+  max-width: 700px;
+  height: 500px;
+  margin: auto;
+  margin-left: 10px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex: 1;
+}
+
+#shopping-list-container-3 {
+  max-width: 300px;
+  height: 500px;
+  margin: auto;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#parent {
+  display: flex;
+}
+
+.shopping-list-ingredient {
+  border: none;
+  border-bottom: 1px solid black;
+}
