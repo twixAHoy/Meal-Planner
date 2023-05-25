@@ -3,12 +3,12 @@
 {% block body %}
 
 <!--TODO: search box -->
-{% if form is defined %}
+
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <button type="submit">Submit </button>
     {{ form_end(form) }}
-{% endif %}
+
 <!--Bootstrap grid system for displaying recipes -->
         <div class="container-md">
             <div class="row align-items-center">
