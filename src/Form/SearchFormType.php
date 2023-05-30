@@ -5,6 +5,7 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SearchFormType extends AbstractType
 {
@@ -12,15 +13,17 @@ class SearchFormType extends AbstractType
     {
         $builder
             ->add('search-box', TextType::class,[
-                'margin-top' => '100px',
-                'margin-left' => '10px'
+                'attr' =>array(
+                    'class' => 'search-box',
+                    'placeholder' => 'Search...'
+                )
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+           // 'data_class' => Recipes::class,
         ]);
     }
 }

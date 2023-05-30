@@ -17,20 +17,27 @@ class RecipesController extends AbstractController
 {
     private $recipeRepository;
     private $em;
+    private $searchController;
 
-    public function __construct(RecipesRepository $recipesRepository, EntityManagerInterface $em){
+    public function __construct(RecipesRepository $recipesRepository, EntityManagerInterface $em, SearchController $searchController){
         $this->recipeRepository = $recipesRepository;
         $this->em = $em;
+        $this->searchController = $searchController;
     }
 
     #[Route('/recipes', name: 'show_recipes')]
-    public function showAllRecipes(): Response
+    public function showAllRecipes(Request $request): Response
     {
+        $form = $this->searchController->showFormInMealsPage();
+       // $form->handleRequest($request);
+
         $recipes = $this->recipeRepository->findAll();
         return $this->render('recipes/recipes.html.twig', [
-            'recipes' => $recipes
+            'recipes' => $recipes,
+            'form' => $form
         ]);
     }
+
 
     #[Route('/recipes/add', name: 'add_recipes')]
     public function addNewRecipe(Request $request): Response
@@ -123,4 +130,6 @@ class RecipesController extends AbstractController
 
         return $this->redirectToRoute('show_recipes');
     }
+
+
 }
