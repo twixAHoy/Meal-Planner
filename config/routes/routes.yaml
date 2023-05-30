@@ -7,3 +7,8 @@ delete_ingredient_from_shopping_list:
   path: /shoppingList/delete/{id}
   methods: POST
   controller: App\Controller\ShoppingListController::deleteIngredientFromShoppingList
+
+search_filter:
+  path: /search-meal
+  methods: POST
+  controller: App\Controller\SearchController::searchForMeal

@@ -26,9 +26,10 @@ class RecipesController extends AbstractController
     }
 
     #[Route('/recipes', name: 'show_recipes')]
-    public function showAllRecipes(): Response
+    public function showAllRecipes(Request $request): Response
     {
         $form = $this->searchController->showFormInMealsPage();
+       // $form->handleRequest($request);
 
         $recipes = $this->recipeRepository->findAll();
         return $this->render('recipes/recipes.html.twig', [
@@ -36,6 +37,7 @@ class RecipesController extends AbstractController
             'form' => $form
         ]);
     }
+
 
     #[Route('/recipes/add', name: 'add_recipes')]
     public function addNewRecipe(Request $request): Response

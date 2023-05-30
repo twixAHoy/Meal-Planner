@@ -26,11 +26,18 @@ class SearchController extends AbstractController
     }
 
     #[Route('/search-meal', name:'search_filter', methods:['GET'])]
-    public function searchForMeal($userMealInput, Request $request){
-       
+    public function searchForMeal(Request $request){
+        $userMealInput = $request->request->get('input');
+
+        var_dump($userMealInput);
+
         $allMeals = $this->recipeRepository->findAll();
         for($i = 0; $i <= count($allMeals)-1; $i++){
+            if($userMealInput == $allMeals[$i]){
+                return $this->redirectToRoute('show_recipes', $userMealInput);
             
+            }
         }
+        return $this->redirectToRoute('show_recipes');
     }
 }

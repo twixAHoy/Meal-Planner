@@ -1,10 +1,16 @@
 /*@import "node_modules/bootstrap/scss/bootstrap";*/
 
-/*.search-box {
-  margin-top: 100px;
-  margin-left: 10px;
+.search-box {
+  font-family: "Rubik Mono One", sans-serif;
+  width: 25%;
+  padding: 12px 20px;
+  margin: 20px 550px 5px;
+  margin-top: 65px;
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid rgb(148, 147, 147);
+  box-sizing: border-box;
 }
-*/
 .container-md {
   margin-top: 75px;
 }

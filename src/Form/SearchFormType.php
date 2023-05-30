@@ -14,7 +14,7 @@ class SearchFormType extends AbstractType
         $builder
             ->add('search-box', TextType::class,[
                 'attr' =>array(
-                    'class' => 'recipe-name-text-box-edit',
+                    'class' => 'search-box',
                     'placeholder' => 'Search...'
                 )
             ]);
