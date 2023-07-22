@@ -27,16 +27,19 @@ class SearchController extends AbstractController
 
     #[Route('/search-meal', name:'search_filter', methods:['GET'])]
     public function searchForMeal(Request $request){
-        $userMealInput = $request->request->get('input');
+        $userMealInput = $request->query->get('input');
 
-        var_dump($userMealInput);
+        $query = $this->entityManagerInterface->createQuery( "SELECT 
+               *
+         FROM mealPlanner.recipes
+         WHERE name = :input");
 
-        $allMeals = $this->recipeRepository->findAll();
-        for($i = 0; $i <= count($allMeals)-1; $i++){
-            if($userMealInput == $allMeals[$i]){
-                return $this->redirectToRoute('show_recipes', $userMealInput);
-            
-            }
+         $query->setParameter('input', $userMealInput);
+
+         $result = $query->getResult();
+
+        if($result){
+            return $this->redirectToRoute('show_searched_recipe');
         }
         return $this->redirectToRoute('show_recipes');
     }

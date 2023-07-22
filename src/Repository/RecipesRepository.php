@@ -30,15 +30,7 @@ class RecipesRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Recipes $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
-
+    
 //    /**
 //     * @return Recipes[] Returns an array of Recipes objects
 //     */

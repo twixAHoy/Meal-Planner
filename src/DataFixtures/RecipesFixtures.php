@@ -10,7 +10,7 @@ class RecipesFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $chickenCaesarSalad = new Recipes();
+        /*$chickenCaesarSalad = new Recipes();
         $chickenCaesarSalad->setName('Caesar Chicken Salad');
         $chickenCaesarSalad->setDescription('salad desc');
         $chickenCaesarSalad->setIngredients('romaine lettuce, caesar dressing, croutons, chicken');
@@ -26,6 +26,6 @@ class RecipesFixtures extends Fixture
         $bbqChicWrap->setiMAGE('https://cdn.pixabay.com/photo/2022/08/27/13/59/kebab-chicken-sandwich-7414522_1280.jpg');
         $manager->persist($bbqChicWrap);
 
-        $manager->flush();
+        $manager->flush();*/
     }
 }

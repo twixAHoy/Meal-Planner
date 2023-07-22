@@ -9,6 +9,7 @@
 import "./styles/app.scss";
 import "./styles/basic.scss";
 import "./styles/shoppinglist.scss";
+import "./styles/forms.scss";
 
 //import javascript
 import "./javascript/index.js";

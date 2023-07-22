@@ -1,0 +1,52 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+
+    <div class="container-1">
+        <h2>meal plan.</h2>
+        <h1>For a Healthier Lifestyle, Plan the Right Way.</h1>
+
+    <!--Add Recipe Button and TO DO: load more link -->
+        <div class="p-5 d-flex justify-content-center">
+            <a href="/add/meal" class="button-add add-button-and-load-more" role="button" aria-pressed="true">ADD NEW MEAL</a>
+            <!--<a href="#" class="load-more add-button-and-load-more">LOAD MORE...</a> -->
+        </div>
+    </div>
+
+    <div class="container-2">
+        <!--<p class="container-2-p">
+            BROWSE
+        <p>-->
+        <button type="submit" class="meal-type-button" name="breakfast">
+            BREAKFAST
+        </button>
+
+        <button type="submit" class="meal-type-button" name="lunch">
+            LUNCH
+        </button>
+
+        <button type="submit" class="meal-type-button" name="dinner">
+            DINNER
+        </button>
+    </div>
+
+
+<!--Bootstrap grid system for displaying recipes -->
+        <div class="container-md">
+            <div class="row align-items-center">
+            {% for meal in meals %}
+                    <div class="col-sm-3 meal-container">
+                        <!--<div class="col-sm image-column">-->
+                        <img src="{{ meal.meal_Photo }}" alt="" class="meal-images">   
+                        <div class="meal-name-text">
+                                <a href="/meals/edit/{{meal.id}}">{{ meal.meal_Name }}</a>
+                        </div>
+                    </div>   
+            {% endfor %}       
+            </div> 
+        </div>      
+    </div>
+
+    <!--TODO: Load More.. Link -->
+
+{% endblock %}

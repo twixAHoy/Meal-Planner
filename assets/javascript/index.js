@@ -77,32 +77,23 @@ $(function () {
     });
   });
 
-  //search box functionality on meal/recipes page
-  //keydown will be helpful when doing an on type lookup
-  $(".search-box").on("keydown", function (event) {
-    var userMealInput = $(this).val();
-    //console.log(userMealInput);
-    if (event.key === "Enter") {
-      $.ajax({
-        url: "/search-meal",
-        cache: false,
-        type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        data: { input: userMealInput },
-        success: function (response) {
-          // window.location.reload();
-        },
-        error: function (xhr, status, error) {
-          alert("Could not find the meal you're looking for.");
-          // window.location.reload();
-        },
-      });
-    }
-  });
-
-  //add meal to lunch meal plan
-  $(".lunch-checkbox").on("click", function () {
-    var checkbox = $(this);
-    console.log(checkbox);
+  //search for meals by type
+  $(".meal-type-button").on("click", function () {
+    var mealType = $(this).attr("name");
+    // console.log(mealType);
+    $.ajax({
+      url: "/all-meals/meal-type/" + mealType,
+      cache: false,
+      type: "GET",
+      contentType: "application/json",
+      data: { mealType: mealType },
+      success: function (response) {
+        console.log("yay!");
+        //window.location.reload();
+      },
+      error: function (xhr, status, error) {
+        console.log(error, xhr);
+      },
+    });
   });
 });
