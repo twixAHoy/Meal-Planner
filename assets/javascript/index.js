@@ -80,16 +80,15 @@ $(function () {
   //search for meals by type
   $(".meal-type-button").on("click", function () {
     var mealType = $(this).attr("name");
-    // console.log(mealType);
     $.ajax({
-      url: "/all-meals/meal-type/" + mealType,
+      url: "/all-meals/type/" + mealType,
       cache: false,
       type: "GET",
-      contentType: "application/json",
+      //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
       data: { mealType: mealType },
       success: function (response) {
-        console.log("yay!");
-        //window.location.reload();
+        console.log(response);
+        $(".main-container").html(response);
       },
       error: function (xhr, status, error) {
         console.log(error, xhr);

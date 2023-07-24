@@ -32,7 +32,7 @@ h2 {
 .container-2-p {
   position: relative;
   left: 700px;
-  top: 20px;
+  top: 10px;
 }
 
 .search-box {
@@ -104,6 +104,10 @@ a {
 }
 
 /*Search section*/
+.container-2 {
+  height: 10px;
+}
+
 .meal-type-button {
   background-color: white;
   border-style: solid;

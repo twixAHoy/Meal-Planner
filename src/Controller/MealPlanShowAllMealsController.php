@@ -26,16 +26,4 @@ class MealPlanShowAllMealsController extends AbstractController{
             //'form' => $form
         ]);
     }
-
-    #[Route('/filtered-meals', name: 'show_meals_by_meal_type')]
-    public function showAllMealsByMealType(array $filteredMeals): Response{
-
-        //$form = $this->searchController->showFormInMealsPage();
-        //$meals = $this->mealsRepo->showAllMeals();
-
-        return $this->render('meals/meals-main-page.html.twig', [
-            'meals' => $filteredMeals
-            //'form' => $form
-        ]);
-    }
 }

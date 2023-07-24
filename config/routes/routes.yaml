@@ -20,6 +20,6 @@ search_filter:
 
   #search by meal type
 search_by_meal_type:
-  path: /all-meals/meal-type/{mealType}
+  path: /all-meals/type/{mealType}
   methods: GET
   controller: App\Controller\MealPlanSearchByMealTypeController::searchByMealType

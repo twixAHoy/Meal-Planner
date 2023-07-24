@@ -52,20 +52,23 @@ class MealsRepository extends ServiceEntityRepository
     }
 
     public function showMealsByMealType(string $mealType){
-
         if(!$mealType){
             throw new RuntimeException();
         }
-
-        try{
-            return $this->createQueryBuilder('meals')
+        $repository = $this;
+        $queryBuilder = $repository->createQueryBuilder('meals')
             ->where('meals.mealType = :mealType')
-            ->setParameter('mealType', $mealType)
-            ->getQuery()
-            ->execute();
-        }catch(RuntimeError $e){
-            throw new RuntimeException("There was an error getting the meals. " . $e->getMessage());
-        }
+            ->setParameter('mealType', $mealType);
+
+        $results = $queryBuilder->getQuery()->getResult();
+        return $results;
+
+         /* Get the DQL string
+         $dql = $queryBuilder->getDQL();
+         var_dump($dql);
+ 
+         $sql = $queryBuilder->getQuery()->getSQL();
+         var_dump($sql);*/
     }
 
       /*#[Route('/search-recipe', name: 'show_searched_recipe')]
