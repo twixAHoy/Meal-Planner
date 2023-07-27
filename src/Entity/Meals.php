@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MealsRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MealsRepository::class)]
@@ -27,6 +28,13 @@ class Meals
 
     #[ORM\Column(length: 10)]
     private ?string $mealType = null;
+
+    #[ORM\OneToMany(mappedBy: 'meal',targetEntity: "App\Entity\Recipes")]
+    private ?string $recipe;
+
+    public function __construct(){
+    
+    }
 
     public function getId(): ?int
     {
@@ -92,4 +100,19 @@ class Meals
 
         return $this;
     }
+
+    /**
+     * @return string|Recipe[]
+     */
+    public function getRecipe(): string
+    {
+        return $this->recipe;
+    }
+
+    public function setRecipe(string $recipe): self
+    {
+       $this->recipe = $recipe;
+       return $this;
+    }
+
 }

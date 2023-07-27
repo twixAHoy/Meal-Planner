@@ -13,13 +13,14 @@ delete_ingredient_from_shopping_list:
   methods: POST
   controller: App\Controller\ShoppingListController::deleteIngredientFromShoppingList
 
-search_filter:
-  path: /search-meal
-  methods: GET
-  controller: App\Controller\RecipesController::searchForMeal
-
   #search by meal type
 search_by_meal_type:
   path: /all-meals/type/{mealType}
   methods: GET
   controller: App\Controller\MealPlanSearchByMealTypeController::searchByMealType
+
+  #search by meal name
+search_by_meal_name:
+  path: /all-meals/name/{mealName}
+  methods: GET
+  controller: App\Controller\MealPlanSearchByMealNameController::searchByMealName

@@ -23,6 +23,7 @@ use Twig\Error\RuntimeError;
 class MealsRepository extends ServiceEntityRepository
 {
     public EntityManagerInterface $entityManager;
+    //public $repository = $this;
 
     public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
     {
@@ -69,6 +70,20 @@ class MealsRepository extends ServiceEntityRepository
  
          $sql = $queryBuilder->getQuery()->getSQL();
          var_dump($sql);*/
+    }
+
+    public function searchByMealName(string $mealName){
+        if(!$mealName){
+            throw new RuntimeException();
+        }
+
+        $repository = $this;
+        $queryBuilder= $repository->createQueryBuilder('meals')
+            ->where('meals.meal_Name = :mealName')
+            ->setParameter('mealName', $mealName);
+
+        $results = $queryBuilder->getQuery()->getResult();
+        return $results;    
     }
 
       /*#[Route('/search-recipe', name: 'show_searched_recipe')]

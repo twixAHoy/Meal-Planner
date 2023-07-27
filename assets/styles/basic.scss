@@ -1,4 +1,15 @@
 /*@import "node_modules/bootstrap/scss/bootstrap";*/
+.meal-plan-navbar {
+  margin-bottom: 50px;
+  background-color: white;
+  text-align: center;
+}
+
+.meal-plan-ul {
+  text-align: center;
+  margin-left: 425px;
+}
+
 .container-1 {
   background-color: #eedbf4;
   height: 500px;
@@ -52,18 +63,19 @@ h2 {
 
 .meal-container {
   position: relative;
-  left: 90px;
-  width: 300px;
+  left: 5px;
+  width: 400px;
   height: 400px;
-  margin: 60px 8px 20px;
-  margin-right: 100px;
+  margin: 60px 8px 10px;
+  margin-right: 50px;
   text-align: center;
 }
 
 .meal-container:nth-child(3n + 1) {
   border-style: solid;
-  border-color: rgb(240, 223, 241);
-  background-color: rgb(240, 223, 241);
+  border-color: rgb(249, 246, 250);
+  background-color: rgb(249, 246, 250);
+  box-shadow: 5px 10px rgb(231, 233, 231);
 }
 
 .meal-container:nth-child(3n + 2) {
@@ -108,6 +120,20 @@ a {
   height: 10px;
 }
 
+.search-by-name {
+  position: relative;
+  top: 50px;
+  left: 500px;
+}
+
+.search-text-box {
+  height: 50px;
+  width: 400px;
+  border: none;
+  border-bottom: 2px solid black;
+  font-family: "Rubik Mono One", sans-serif;
+}
+
 .meal-type-button {
   background-color: white;
   border-style: solid;
@@ -122,6 +148,7 @@ a {
   cursor: pointer;
   position: relative;
   width: 200px;
+  margin-top: 40px;
 }
 
 .meal-type-button:nth-child(3n + 1) {

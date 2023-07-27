@@ -9,8 +9,15 @@
     <!--Add Recipe Button and TO DO: load more link -->
         <div class="p-5 d-flex justify-content-center">
             <a href="/add/meal" class="button-add add-button-and-load-more" role="button" aria-pressed="true">ADD NEW MEAL</a>
+            <!--a href="/add/meal"-->
             <!--<a href="#" class="load-more add-button-and-load-more">LOAD MORE...</a> -->
         </div>
+</div>
+
+    </div>
+    
+    <div class="search-by-name">
+        <input type="text" class="form-control-sm search-text-box" placeholder="SEARCH..">
     </div>
 
     <div class="container-2">
@@ -35,7 +42,7 @@
         <div class="container-md meals-container">
             <div class="row align-items-center">
             {% for meal in meals %}
-                    <div class="col-sm-3 meal-container">
+                    <div class="col-sm-3 meal-container {{meal.mealType}}">
                         <!--<div class="col-sm image-column">-->
                         <img src="{{ meal.meal_Photo }}" alt="" class="meal-images">   
                         <div class="meal-name-text">

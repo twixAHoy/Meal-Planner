@@ -18,16 +18,17 @@ class MealFixtures extends Fixture
         $chickenCaesarSalad->setMealRating(5);
         $chickenCaesarSalad->setMealPhoto('https://cdn.pixabay.com/photo/2017/08/11/00/32/salad-2629262_1280.jpg');
         $chickenCaesarSalad->setMealType('lunch');
+        $chickenCaesarSalad->setRecipe("first step");
         $manager->persist($chickenCaesarSalad);
 
-        $bbqChicWrap = new Meals();
+        /*$bbqChicWrap = new Meals();
         $bbqChicWrap->setMealName('Barbeque Chicken Wrap');
         $bbqChicWrap->setMealDescription('bbq desc');
         //$bbqChicWrap->setIngredients('romaine lettuce, chicken, wraps, bbq sauce');
         $bbqChicWrap->setMealRating(4);
         $bbqChicWrap->setMealPhoto('https://cdn.pixabay.com/photo/2022/08/27/13/59/kebab-chicken-sandwich-7414522_1280.jpg');
         $bbqChicWrap->setMealType('dinner');
-        $manager->persist($bbqChicWrap);
+        $manager->persist($bbqChicWrap);*/
 
         $manager->flush();
     }

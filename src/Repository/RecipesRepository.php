@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Recipes;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -16,8 +17,14 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RecipesRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    public EntityManagerInterface $em;
+    private MealsRepository $mealRepo;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $em, MealsRepository $mealsRepository)
     {
+        $this->em = $em;
+        $this->mealRepo = $mealsRepository;
         parent::__construct($registry, Recipes::class);
     }
 
@@ -30,7 +37,31 @@ class RecipesRepository extends ServiceEntityRepository
         }
     }
 
-    
+    public function remove(Recipes $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+   
+    /*public function addRecipeStep(int $mealID, string $recipeStep){
+
+        //find recipe by mealid
+        $recipeID = $this->mealRepo->getRecipeID($mealID);
+
+        //get recipe steps into an array
+        $recipeSteps = $this->find($recipeID);
+
+        //append recipe step to recipe
+        $newRecipeSteps = $recipeSteps;
+
+
+        //update page using js
+    }*/
+
 //    /**
 //     * @return Recipes[] Returns an array of Recipes objects
 //     */

@@ -25,7 +25,7 @@ class MealsFormType extends AbstractType
             ->add('meal_Description', TextType::class,[
                 'attr' => array (
                     'class' => 'meal-name-form'
-                )
+                ),
             ])
             /*->add('meal_Rating', null,[
                 'attr' => array (
@@ -35,8 +35,9 @@ class MealsFormType extends AbstractType
             ->add('meal_Photo', FileType::class,[
                 'attr' => array (
                     'class' => 'meal-photo-form'
-                )
+                ),
             ])
+            ->add('recipeSteps')
         ;
     }
 

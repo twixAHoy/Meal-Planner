@@ -13,6 +13,9 @@ import "./styles/forms.scss";
 
 //import javascript
 import "./javascript/index.js";
+import "./javascript/MealPlan";
+import "./javascript/MealPlanReader";
+import "./javascript/MealPlanWriter";
 
 //import images
 import "./images/thinker.png";

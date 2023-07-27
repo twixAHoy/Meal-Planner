@@ -1,24 +1,26 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
 
-<div class="modify-meal-container">
+<body class="modify-meal-body">
+    <div class="modify-meal-container">
 
-    <img src="https://cdn.pixabay.com/photo/2016/03/23/15/00/ice-cream-1274894_1280.jpg" 
-        alt="modify-meal-no-picture"
-        class="modify-meal-no-picture"/>
-    <a>
+        <img src="https://cdn.pixabay.com/photo/2016/03/23/15/00/ice-cream-1274894_1280.jpg" 
+            alt="modify-meal-no-picture"
+            class="modify-meal-no-picture"/>
+        <a>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
 
-        <button
-            type="submit"
-            class="btn btn-success">
-            Submit
-        </button>
+            <button
+                type="submit"
+                class="btn btn-success">
+                Submit
+            </button>
 
-    {{ form_end(form) }}
-</div>  
+        {{ form_end(form) }}
+    </div> 
+
+</body> 
 
 {% endblock %}

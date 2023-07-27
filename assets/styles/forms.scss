@@ -1,13 +1,17 @@
 :root {
   --opacity: 50%;
 }
+.modify-meal-body {
+  background-color: #eedbf4;
+}
+
 .modify-meal-container {
   height: 500px;
   width: 50%;
   margin-top: 150px;
   margin-left: 400px;
   box-shadow: 5px 5px 5px 5px grey;
-  border-radius: 10px;
+  background-color: white;
 }
 
 .modify-meal-no-picture {
@@ -31,35 +35,4 @@
   border-radius: 4px;
   box-sizing: border-box;
   margin-left: 170px;
-}
-
-.stars a {
-  //make all stars opaque and make the cursor a pointer type
-  //opacity: 50%;
-  opacity: var(--opacity);
-  cursor: pointer;
-}
-
-.stars:hover a {
-  //when hovering over the div stars, make all stars opaque
-  opacity: 100%;
-}
-
-.stars a:hover {
-  //when hovering over a star in the div stars, make that stars 100 shown
-  opacity: 100%;
-}
-
-.stars a:hover ~ a {
-  //ex: when hovering over 3rd star, make 4 and 5 opaque
-  //opacity: 50%;
-  opacity: var(--opacity);
-}
-
-.stars a.active {
-  opacity: 100%;
-}
-
-.stars.disabled {
-  pointer-events: none;
 }

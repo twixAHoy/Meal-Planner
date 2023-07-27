@@ -16,8 +16,8 @@ class MealPlanSearchByMealTypeController extends AbstractController{
         $this->mealPlanShowAllMeals = $mealPlanShowAllMealsController;
     }
 
-    #[Route('/all-meals/type/{mealType}', name: 'search_by_meal_type', methods:[GET])]
-    public function searchByMealType(Request $request){
+    #[Route('/all-meals/type/{mealType}', name: 'search_by_meal_type', methods:['GET'])]
+    public function searchByMealType(Request $request):Response{
         $mealType = $request->attributes->get('mealType');
         $response = $this->mealsRepo->showMealsByMealType($mealType);
         return $this->render('meals/meals-main-page.html.twig', [
