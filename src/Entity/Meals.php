@@ -29,8 +29,8 @@ class Meals
     #[ORM\Column(length: 10)]
     private ?string $mealType = null;
 
-    #[ORM\OneToMany(mappedBy: 'meal',targetEntity: "App\Entity\Recipes")]
-    private ?string $recipe;
+    // #[ORM\OneToMany(mappedBy: 'meal',targetEntity: "App\Entity\Recipes")]
+    // private ?string $recipe;
 
     public function __construct(){
     
@@ -101,18 +101,18 @@ class Meals
         return $this;
     }
 
-    /**
-     * @return string|Recipe[]
-     */
-    public function getRecipe(): string
-    {
-        return $this->recipe;
-    }
+    // /**
+    //  * @return string|Recipe[]
+    //  */
+    // public function getRecipe(): string
+    // {
+    //     return $this->recipe;
+    // }
 
-    public function setRecipe(string $recipe): self
-    {
-       $this->recipe = $recipe;
-       return $this;
-    }
+    // public function setRecipe(string $recipe): self
+    // {
+    //    $this->recipe = $recipe;
+    //    return $this;
+    // }
 
 }

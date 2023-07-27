@@ -1,30 +1,30 @@
 import { MealPlanReader } from "./MealPlanReader";
-import { MealPlanWriter } from "./MealPlanWriter";
+//import { MealPlanWriter } from "./MealPlanWriter";
 
 export class MealPlan {
   constructor() {}
 
   initialize() {
     this.MealPlanReader = new MealPlanReader();
-    this.MealPlanWriter = new MealPlanWriter();
+    //this.MealPlanWriter = new MealPlanWriter();
+    this.searchByType();
   }
 
   //function that is called on click
   searchByType() {
-    let nativeClass = this;
-    $(".meal-type-button").on("click", function (event) {
-      event.preventDefault();
-      var mealType = $(this).attr("name");
-      //get element by class name
-      let checkElement = document.getElementsByClassName("meal-container");
-      this.MealPlanReader.searchByType(mealType).then((data) => {
-        //find all elements where class != mealType and hide
-        if (checkElement.classList.contains(mealType)) {
-          checkElement.css("display", "block");
-        } else {
-          checkElement.css("display", "none");
+    $(".meal-type-button")
+      .off("click")
+      .on("click", (event) => {
+        var mealType = $(event.target).attr("name");
+        console.log(mealType);
+        let checkElement = document.getElementsByClassName("meal-container");
+
+        for (let i = 0; i < checkElement.length; i++) {
+          const element = checkElement[i];
+          if (!element.classList.contains(mealType)) {
+            element.style.display = "none";
+          }
         }
       });
-    });
   }
 }

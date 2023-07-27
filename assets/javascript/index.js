@@ -77,7 +77,7 @@ $(function () {
     });
   });
 
-  //search for meals by type
+  /*search for meals by type
   $(".meal-type-button").on("click", function () {
     var mealType = $(this).attr("name");
     $.ajax({
@@ -95,7 +95,7 @@ $(function () {
       },
     });
   });
-
+*/
   //search for meals by name
   $(".search-text-box").on("keydown", function (event) {
     var mealName = $(this).val();
