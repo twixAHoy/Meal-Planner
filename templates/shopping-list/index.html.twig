@@ -18,37 +18,48 @@
 
 <div id="parent">
 <!--TO DO:container for often bought ingredients -->
-<div id="shopping-list-container-3">
+<!--<div id="shopping-list-container-3">-->
 <!-- if no ingredients, show a message saying "There aren't any ingredients.. let's add some here -->
 
 <!--search bar -->
-   <p>here is where we'll put commonly bought grocery items </p>
-</div> 
+ <!--  <p>here is where we'll put commonly bought grocery items </p>-->
+<!--</div> -->
 
 <!--container that will have ingredients listed with checkbox  -->
-<div id="shopping-list-container-2">
-   <!-- if no ingredients, show a message saying "There aren't any ingredients.. let's add some here -->
-    {% if ingredients|length < 1 %}
-            <input type="text" class="shopping-list-ingredient" placeholder="Add first item"/>  
-            <!--input for how much ie 4c -->
-            <input type="button" class="addNewIngredient" value="add"/> 
-    {% endif %}
+    <div id="shopping-list-container-2">
+    <!-- if no ingredients, show a message saying "There aren't any ingredients.. let's add some here -->
+        {% if ingredients|length < 1 %}
+                <input type="text" class="shopping-list-ingredient" placeholder="Add first item"/>  
+                <!--input for how much ie 4c -->
+                <input type="button" class="addNewIngredient" value="add"/> 
+        {% endif %}
 
-    {% for ingredient in ingredients %}
-    <div id="ingredient-{{ingredient.id}}">
-        <input type="checkbox" class="shopping-list-checkbox-1" data-id="{{ingredient.id}}"/>
-        <input type="text" class="shopping-list-ingredient-name" value="{{ ingredient.name }}"></input>
-        <!--small itilicized text for how much ie 4c -->
-        <input type="hidden" name="ingredient-id" id="ingredient-id-{{ingredient.id}}" value="{{ingredient.id}}"/>
-        <br>
-    </div>    
-    {% endfor %}
-        <br>
-    {% if ingredients|length > 0 %}
-            <input type="text" class="shopping-list-ingredient" placeholder="Add an item"/>  
-            <!--<input type="button" class="addNewIngredient" value="add"/> -->
-    {% endif %}
-</div>
+        {% for ingredient in ingredients %}
+        <div id="ingredient-{{ingredient.id}}">
+            <input type="checkbox" class="shopping-list-checkbox-1" data-id="{{ingredient.id}}"/>
+            <input type="text" class="shopping-list-ingredient-name" value="{{ ingredient.name }}"></input>
+            <!--small itilicized text for how much ie 4c -->
+            <input type="hidden" name="ingredient-id" id="ingredient-id-{{ingredient.id}}" value="{{ingredient.id}}"/>
+            <br>
+        </div>    
+        {% endfor %}
+            <br>
+        {% if ingredients|length > 0 %}
+                <input type="text" class="shopping-list-ingredient" placeholder="Add an item"/>  
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Type of Ingredient
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Dairy</a>
+                        <a class="dropdown-item" href="#">Protein</a>
+                        <a class="dropdown-item" href="#">Produce</a>
+                        <a class="dropdown-item" href="#">Other</a>
+                    </div>
+                </div>
+                <!--<input type="button" class="addNewIngredient" value="add"/> -->
+        {% endif %}
+    </div>
 </div>
 <!-- button for restarting list -->
 <a href="/shoppingList/restartList/" class="button-delete"> Restart List </a>

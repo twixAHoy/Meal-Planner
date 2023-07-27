@@ -1,0 +1,38 @@
+:root {
+  --opacity: 50%;
+}
+.modify-meal-body {
+  background-color: #eedbf4;
+}
+
+.modify-meal-container {
+  height: 500px;
+  width: 50%;
+  margin-top: 150px;
+  margin-left: 400px;
+  box-shadow: 5px 5px 5px 5px grey;
+  background-color: white;
+}
+
+.modify-meal-no-picture {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin-left: 260px;
+  margin-top: 20px;
+}
+
+.modify-meal-no-picture:hover {
+  opacity: var(--opacity);
+}
+
+.meal-name-form {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 170px;
+}

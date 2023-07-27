@@ -77,32 +77,46 @@ $(function () {
     });
   });
 
-  //search box functionality on meal/recipes page
-  //keydown will be helpful when doing an on type lookup
-  $(".search-box").on("keydown", function (event) {
-    var userMealInput = $(this).val();
-    //console.log(userMealInput);
+  /*search for meals by type
+  $(".meal-type-button").on("click", function () {
+    var mealType = $(this).attr("name");
+    $.ajax({
+      url: "/all-meals/type/" + mealType,
+      cache: false,
+      type: "GET",
+      //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+      data: { mealType: mealType },
+      success: function (response) {
+        console.log(response);
+        //$(".main-container").html(response);
+      },
+      error: function (xhr, status, error) {
+        console.log(error, xhr);
+      },
+    });
+  });
+*/
+  //search for meals by name
+  $(".search-text-box").on("keydown", function (event) {
+    var mealName = $(this).val();
     if (event.key === "Enter") {
+      console.log(mealName);
       $.ajax({
-        url: "/search-meal",
+        url: "/all-meals/name/" + mealName,
         cache: false,
         type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        data: { input: userMealInput },
+        data: { mealName: mealName },
         success: function (response) {
-          // window.location.reload();
+          console.log(response);
         },
         error: function (xhr, status, error) {
-          alert("Could not find the meal you're looking for.");
-          // window.location.reload();
+          console.log(error, xhr);
         },
       });
     }
   });
 
-  //add meal to lunch meal plan
-  $(".lunch-checkbox").on("click", function () {
-    var checkbox = $(this);
-    console.log(checkbox);
+  $("#myModal").on("shown.bs.modal", function () {
+    $("#myInput").trigger("focus");
   });
 });

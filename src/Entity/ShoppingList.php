@@ -16,6 +16,9 @@ class ShoppingList
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 10)]
+    private ?string $typeOfIngredient = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class ShoppingList
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTypeOfIngredient(): ?string
+    {
+        return $this->typeOfIngredient;
+    }
+
+    public function setTypeOfIngredient(string $typeOfIngredient): self
+    {
+        $this->typeOfIngredient = $typeOfIngredient;
 
         return $this;
     }

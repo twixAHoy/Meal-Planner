@@ -9,9 +9,16 @@
 import "./styles/app.scss";
 import "./styles/basic.scss";
 import "./styles/shoppinglist.scss";
+import "./styles/forms.scss";
 
 //import javascript
 import "./javascript/index.js";
+import { MealPlan } from "./javascript/MealPlan";
+import "./javascript/MealPlanReader";
+//import "./javascript/MealPlanWriter";
+
+const mealPlan = new MealPlan();
+mealPlan.initialize();
 
 //import images
 import "./images/thinker.png";
