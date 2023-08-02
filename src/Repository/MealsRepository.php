@@ -76,11 +76,12 @@ class MealsRepository extends ServiceEntityRepository
         if(!$mealName){
             throw new RuntimeException();
         }
-
+        $searchTerm = '%' . $mealName . '%';
+        
         $repository = $this;
         $queryBuilder= $repository->createQueryBuilder('meals')
-            ->where('meals.meal_Name = :mealName')
-            ->setParameter('mealName', $mealName);
+            ->where('meals.meal_Name like :searchTerm')
+            ->setParameter('searchTerm', $searchTerm);
 
         $results = $queryBuilder->getQuery()->getResult();
         return $results;    

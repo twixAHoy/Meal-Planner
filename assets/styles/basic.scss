@@ -1,8 +1,13 @@
 /*@import "node_modules/bootstrap/scss/bootstrap";*/
+
+body {
+  max-width: 100%;
+}
 .meal-plan-navbar {
   margin-bottom: 50px;
   background-color: white;
   text-align: center;
+  width: auto;
 }
 
 .meal-plan-ul {
