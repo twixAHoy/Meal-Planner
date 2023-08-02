@@ -97,24 +97,24 @@ $(function () {
   });
 */
   //search for meals by name
-  $(".search-text-box").on("keydown", function (event) {
-    var mealName = $(this).val();
-    if (event.key === "Enter") {
-      console.log(mealName);
-      $.ajax({
-        url: "/all-meals/name/" + mealName,
-        cache: false,
-        type: "GET",
-        data: { mealName: mealName },
-        success: function (response) {
-          console.log(response);
-        },
-        error: function (xhr, status, error) {
-          console.log(error, xhr);
-        },
-      });
-    }
-  });
+  // $(".search-text-box").on("keydown", function (event) {
+  //   var mealName = $(this).val();
+  //   if (event.key === "Enter") {
+  //     console.log(mealName);
+  //     $.ajax({
+  //       url: "/all-meals/name/" + mealName,
+  //       cache: false,
+  //       type: "GET",
+  //       data: { mealName: mealName },
+  //       success: function (response) {
+  //         console.log(response);
+  //       },
+  //       error: function (xhr, status, error) {
+  //         console.log(error, xhr);
+  //       },
+  //     });
+  //   }
+  // });
 
   $("#myModal").on("shown.bs.modal", function () {
     $("#myInput").trigger("focus");

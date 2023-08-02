@@ -8,23 +8,37 @@ export class MealPlan {
     this.MealPlanReader = new MealPlanReader();
     //this.MealPlanWriter = new MealPlanWriter();
     this.searchByType();
+    this.searchByName();
   }
 
   //function that is called on click
   searchByType() {
-    $(".meal-type-button")
-      .off("click")
-      .on("click", (event) => {
-        var mealType = $(event.target).attr("name");
-        console.log(mealType);
-        let checkElement = document.getElementsByClassName("meal-container");
+    $(document).on("click", ".meal-type-button", (event) => {
+      var mealType = $(event.target).attr("name");
+      console.log(mealType);
+      this.MealPlanReader.searchByType(mealType)
+        .then((data) => {
+          // console.log("Received data:", data);
+          $(".main-container").html(data); // Update the content with the received data
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+  }
 
-        for (let i = 0; i < checkElement.length; i++) {
-          const element = checkElement[i];
-          if (!element.classList.contains(mealType)) {
-            element.style.display = "none";
-          }
-        }
-      });
+  searchByName() {
+    $(document).on("keydown", ".search-text-box", (event) => {
+      if (event.key === "Enter") {
+        var mealName = $(event.target).val();
+        this.MealPlanReader.searchByName(mealName)
+          .then((data) => {
+            $(".main-container").html(data);
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
+      }
+    });
   }
 }

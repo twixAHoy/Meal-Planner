@@ -19,4 +19,22 @@ export class MealPlanReader {
       });
     });
   }
+
+  searchByName(mealName) {
+    console.log(mealName);
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: "/all-meals/name/" + mealName,
+        cache: false,
+        type: "GET",
+        data: { mealName: mealName },
+        success: function (data) {
+          resolve(data);
+        },
+        error: function (xhr, status, error) {
+          console.log(error, xhr);
+        },
+      });
+    });
+  }
 }
