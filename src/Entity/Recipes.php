@@ -14,24 +14,33 @@ class Recipes
     #[ORM\Column]
     private ?int $id = null;
 
-    // #[ORM\ManyToOne(targetEntity:"App\Entity\Meals")]
-    // #[ORM\JoinColumn(name:"meal_id", referencedColumnName:"id")]
-    // private ?Meals $meal = null;
+    #[ORM\Column(nullable:true)]
+    private ?int $mealID = null;
 
-    // public function getId(): ?int
-    // {
-    //     return $this->id;
-    // }
+    #[ORM\Column(length: 250)]
+    public ?string $recipeSteps = null;
 
-    // public function getMeal(): ?Meals
-    // {
-    //     return $this->meal;
-    // }
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
-    /*public function setMeal(Meals $meal): self
+    public function getMealID(){
+        return $this->mealID;
+    }
+
+    public function setMealID(?int $mealID){
+        $this->mealID = $mealID;
+    }
+    
+    public function getRecipeSteps(): ?string
+    {
+        return $this->recipeSteps;
+    }
+
+    public function setRecipeStep(string $recipeStep)
     {
         $this->meal = $meal;
-
-        return $this;
-    }*/
+    }
 }
+

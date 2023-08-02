@@ -18,6 +18,11 @@ services:
     autoconfigure: true
     public: true
 
+  App\Entity\Recipes:
+    autowire: true
+    autoconfigure: true
+    public: true
+
   App\:
     resource: "../src/"
     exclude:
