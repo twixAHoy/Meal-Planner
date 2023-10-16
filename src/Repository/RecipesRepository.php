@@ -2,15 +2,10 @@
 
 namespace App\Repository;
 
-use App\Entity\Meals;
+use App\Entity\Recipes;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityRepository;
-use RuntimeException;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Twig\Error\RuntimeError;
 
 /**
  * @extends ServiceEntityRepository<Recipes>
@@ -28,7 +23,7 @@ class RecipesRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-        parent::__construct($registry, Meals::class);
+        parent::__construct($registry, Recipes::class);
     }
 
     public function addNewRecipeToMeal($recipe){
@@ -38,6 +33,16 @@ class RecipesRepository extends ServiceEntityRepository
         }catch(Exception $e){
             return new Response($e->getMessage());
         }
+    }
+
+    public function getRecipeSteps($mealID){
+        $repository = $this;
+        $queryBuilder = $repository->createQueryBuilder('recipes')
+        ->where('recipes.mealID = :mealID')
+        ->setParameter('mealID', $mealID);
+
+        $results = $queryBuilder->getQuery()->getResult();
+        return $results;
     }
     
    

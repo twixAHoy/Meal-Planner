@@ -30,3 +30,9 @@ add_new_recipe:
   path: /meal/{mealID}/add-new-recipe
   methods: POST
   controller: App\Controller\MealPlanAddNewRecipeToMealController::createNewRecipe
+
+#show recipe of a meal
+meal_recipe:
+  path: /recipe/meal/{id}
+  methods: GET
+  controller: App\Controller\MealPlanShowRecipeController::showRecipeForSpecificMeal

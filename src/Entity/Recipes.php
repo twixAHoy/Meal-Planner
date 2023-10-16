@@ -15,7 +15,12 @@ class Recipes
     private ?int $id = null;
 
     #[ORM\Column(nullable:true)]
+   // #[ORM\ManyToOne(targetEntity: Meals::class)]
+    // #[ORM\JoinColumn(name:"meal_id", referencedColumnName:"id")]
     private ?int $mealID = null;
+
+    #[ORM\Column(nullable:true)]
+    private ?int $recipeStepID = null;
 
     #[ORM\Column(length: 250)]
     public ?string $recipeSteps = null;
@@ -32,6 +37,14 @@ class Recipes
     public function setMealID(?int $mealID){
         $this->mealID = $mealID;
     }
+
+    public function getRecipeStepID(){
+        return $this->recipeStepID;
+    }
+
+    public function setRecipeStepID(int $stepid){
+        $this->recipeStepID = $stepid;
+    }
     
     public function getRecipeSteps(): ?string
     {
@@ -40,7 +53,7 @@ class Recipes
 
     public function setRecipeStep(string $recipeStep)
     {
-        $this->meal = $meal;
+        $this->recipeSteps = $recipeStep;
     }
 }
 

@@ -45,8 +45,10 @@
                     <div class="col-sm-3 meal-container {{meal.mealType}}">
                         <!--<div class="col-sm image-column">-->
                         <img src="{{ meal.meal_Photo }}" alt="" class="meal-images">   
+                        <input type="hidden" value={{ meal.id }} class="meal-id"/>
                         <div class="meal-name-text">
-                                <a href="/meals/edit/{{meal.id}}">{{ meal.meal_Name }}</a>
+                               <!-- <a href="/meals/edit/{{meal.id}}">{{ meal.meal_Name }}</a> -->
+                               {{ meal.meal_Name }}
                         </div>
                     </div>   
             {% endfor %}       
@@ -56,5 +58,9 @@
 </div>
 </div>
     <!--TODO: Load More.. Link -->
+
+   <!--will call a js function to include recipes twig file. -->
+    <div class="recipe-container" style="display: none">
+    </div>
 
 {% endblock %}

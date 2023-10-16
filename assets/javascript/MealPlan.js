@@ -9,6 +9,7 @@ export class MealPlan {
     //this.MealPlanWriter = new MealPlanWriter();
     this.searchByType();
     this.searchByName();
+    this.renderRecipeModal();
   }
 
   //function that is called on click
@@ -39,6 +40,35 @@ export class MealPlan {
             console.error("Error: ", error);
           });
       }
+    });
+  }
+
+  showRecipe(mealID) {
+    this.MealPlanReader.showRecipe(mealID)
+      //.then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
+        // const template = `{% include 'recipes/recipe-meal-show.html.twig' with {'recipe': '${data.recipe}' } %}`;
+        $(".recipe-container").append(data);
+        $(".modal").modal("show");
+        $(".recipe-container").css("display", "block");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    $(".recipe-container").empty();
+    $(".modal").modal("hide");
+  }
+
+  renderRecipeModal() {
+    const mealName = $(".meal-name-text");
+    mealName.on("click", (event) => {
+      var mealID = $(event.currentTarget)
+        .closest(".meal-container")
+        .find(".meal-id")
+        .val();
+
+      this.showRecipe(mealID);
     });
   }
 }

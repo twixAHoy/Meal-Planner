@@ -20,7 +20,6 @@ class MealPlanShowAllMealsController extends AbstractController{
 
         //$form = $this->searchController->showFormInMealsPage();
         $meals = $this->mealsRepo->showAllMeals();
-
         return $this->render('meals/meals-main-page.html.twig', [
             'meals' => $meals
             //'form' => $form

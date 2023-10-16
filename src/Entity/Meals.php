@@ -11,8 +11,8 @@ class Meals
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    public ?int $id = null;
+    #[ORM\Column(type:'integer')]
+    public ?int $id;
 
     #[ORM\Column(length: 100)]
     public ?string $meal_Name = null;

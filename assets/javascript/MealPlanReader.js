@@ -21,7 +21,6 @@ export class MealPlanReader {
   }
 
   searchByName(mealName) {
-    console.log(mealName);
     return new Promise((resolve, reject) => {
       $.ajax({
         url: "/all-meals/name/" + mealName,
@@ -36,5 +35,22 @@ export class MealPlanReader {
         },
       });
     });
+  }
+
+  async showRecipe(mealID) {
+    const recipe = await $.ajax({
+      url: "/recipe/meal/" + mealID,
+      cache: false,
+      type: "GET",
+      data: { id: mealID },
+      success: function (recipe) {
+        return recipe;
+      },
+      error: function (xhr, status, error) {
+        return error;
+      },
+    });
+
+    return recipe;
   }
 }
