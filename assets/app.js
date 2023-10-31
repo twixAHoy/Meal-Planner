@@ -16,7 +16,7 @@ import "./javascript/index.js";
 import { MealPlan } from "./javascript/MealPlan";
 //import "./javascript/MealPlan";
 import "./javascript/MealPlanReader";
-//import "./javascript/MealPlanWriter";
+import "./javascript/MealPlanWriter";
 
 const mealPlan = new MealPlan();
 mealPlan.initialize();

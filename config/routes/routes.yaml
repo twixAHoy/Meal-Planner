@@ -36,3 +36,9 @@ meal_recipe:
   path: /recipe/meal/{id}
   methods: GET
   controller: App\Controller\MealPlanShowRecipeController::showRecipeForSpecificMeal
+
+#save recipe
+save_recipe:
+  path: /recipe/meal/update/{mealID}
+  methods: POST
+  controller: App\Controller\MealPlanSaveRecipeController::updateRecipeStep

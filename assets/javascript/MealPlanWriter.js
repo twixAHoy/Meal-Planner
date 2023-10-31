@@ -1,15 +1,19 @@
 export class MealPlanWriter {
-  addNewRecipeToMeal(mealID, recipeStep) {
-    $.ajax({
-      url: "/meal/" + mealID + "/add-new-recipe",
+  async saveRecipe(updatedRecipeSteps, mealID) {
+    console.log(updatedRecipeSteps);
+    console.log(typeof updatedRecipeSteps);
+    await $.ajax({
+      url: "/recipe/meal/update/" + mealID,
       cache: false,
-      type: "GET",
-      data: { mealID: mealID, recipeStep: recipeStep },
+      type: "POST",
+      data: { recipeSteps: updatedRecipeSteps, mealID: mealID },
+      contentType: "application/json",
       success: function (data) {
-        resolve(data);
+        console.log(data);
       },
       error: function (xhr, status, error) {
-        reject(xhr);
+        console.log("failed");
+        console.log(error, xhr);
       },
     });
   }

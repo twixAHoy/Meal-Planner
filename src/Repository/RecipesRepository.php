@@ -44,6 +44,34 @@ class RecipesRepository extends ServiceEntityRepository
         $results = $queryBuilder->getQuery()->getResult();
         return $results;
     }
+
+    public function updateExistingRecipe($mealID, $newRecipeSteps){
+        $repository = $this;
+
+        if(is_array($newRecipeSteps) || is_object($newRecipeSteps)){
+            $em = $this->entityManager;
+            foreach ($newRecipeSteps as $data) {
+                $recipeStepIdToUpdate = $data['recipeStepId'];
+                $newRecipeDescription = $data['recipeStepDesc'];
+    
+                $repository->createQueryBuilder('recipes')
+                ->update(Recipes::class, 'recipes')
+                //->update(Recipes, 'recipes')
+                ->set('recipes.recipe_steps', ':newStepDesc')
+                ->where('recipes.mealID = :mealID')
+                ->andWhere('recipes.recipeStepID = :recipeStepId')
+                ->setParameter('newStep', $newRecipeDescription)
+                ->setParameter('recipeStepId', $recipeStepIdToUpdate)
+                ->setParameter('mealID', $mealID) 
+                ->getQuery()
+                ->execute();
+            }
+
+            //persist changes   
+            $em->flush();
+        }
+        
+    }
     
    
 }

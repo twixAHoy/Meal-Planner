@@ -1,15 +1,17 @@
 import { MealPlanReader } from "./MealPlanReader";
-//import { MealPlanWriter } from "./MealPlanWriter";
+import { MealPlanWriter } from "./MealPlanWriter";
 
 export class MealPlan {
   constructor() {}
 
   initialize() {
     this.MealPlanReader = new MealPlanReader();
-    //this.MealPlanWriter = new MealPlanWriter();
+    this.MealPlanWriter = new MealPlanWriter();
     this.searchByType();
     this.searchByName();
     this.renderRecipeModal();
+    this.saveRecipe();
+    this.closeModal();
   }
 
   //function that is called on click
@@ -47,8 +49,6 @@ export class MealPlan {
     this.MealPlanReader.showRecipe(mealID)
       //.then((response) => response.json())
       .then((data) => {
-        //console.log(data);
-        // const template = `{% include 'recipes/recipe-meal-show.html.twig' with {'recipe': '${data.recipe}' } %}`;
         $(".recipe-container").append(data);
         $(".modal").modal("show");
         $(".recipe-container").css("display", "block");
@@ -69,6 +69,35 @@ export class MealPlan {
         .val();
 
       this.showRecipe(mealID);
+    });
+  }
+
+  saveRecipe() {
+    $(document).on("click", ".save-recipe", (event) => {
+      var recipeDataToSave = [];
+      var mealID = $(".meal-id").val();
+      $(".recipe-step").each(function () {
+        var recipeStep = $(this).val();
+        var recipeStepId = $(this).next(".recipeStepID").val();
+        recipeDataToSave.push({
+          recipeStepId: recipeStepId,
+          recipeStepDesc: recipeStep,
+        });
+      });
+      var jsonRecipeData = JSON.stringify(recipeDataToSave);
+      this.MealPlanWriter.saveRecipe(jsonRecipeData, mealID)
+        .then((data) => {
+          console.log("success");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  }
+
+  closeModal() {
+    $("#close-recipe-modal").on("click", function (event) {
+      $(".modal").modal("hide");
     });
   }
 }
