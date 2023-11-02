@@ -12,6 +12,7 @@ export class MealPlan {
     this.renderRecipeModal();
     this.saveRecipe();
     this.closeModal();
+    this.refreshMealsPage();
   }
 
   //function that is called on click
@@ -42,6 +43,20 @@ export class MealPlan {
             console.error("Error: ", error);
           });
       }
+    });
+  }
+
+  refreshMealsPage() {
+    $(document).on("click", ".refresh-arrow", (event) => {
+      $(".meals-container").html.empty;
+      this.MealPlanReader.refreshMealsPage()
+        .then((data) => {
+          console.log("ping");
+          console.log("data");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
   }
 
