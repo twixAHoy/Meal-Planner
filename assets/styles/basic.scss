@@ -70,7 +70,7 @@ h2 {
   position: relative;
   left: 90px;
   width: 400px;
-  height: 400px;
+  height: 375px;
   margin: 60px 10px;
   margin-right: 50px;
   bottom: 40px;
@@ -120,53 +120,60 @@ a {
 
 .search-by-name {
   position: relative;
+  display: flex;
+  align-items: center;
   top: 50px;
-  left: 500px;
+  left: 420px;
 }
 
 .search-text-box {
-  height: 50px;
+  height: 45px;
   width: 400px;
-  border: none;
-  border-bottom: 1px solid black;
+  border-color: rgb(228, 226, 226);
+  border-style: solid;
+  border-radius: 5px 0px 0px 5px !important; //top left top right bottom right bottom left
   font-family: "Oswald", sans-serif;
 }
 
 .meal-type-button {
   background-color: white;
-  border-style: solid;
-  border-color: black;
+  border-style: none;
   color: black;
   padding: 15px 50px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  font-family: "Oswald", sans-serif;
   font-size: 16px;
-  //margin: 80px 650px 8px;
   cursor: pointer;
+  width: 100%;
   position: relative;
-  width: 200px;
-  margin-top: 40px;
-}
-
-.meal-type-button:nth-child(3n + 1) {
-  left: 100px;
-  top: 50px;
-}
-
-.meal-type-button:nth-child(3n + 2) {
-  left: 250px;
-  top: 50px;
-}
-
-.meal-type-button:nth-child(3n + 3) {
-  left: 400px;
-  top: 50px;
 }
 
 .meal-type-button:hover {
-  background-color: black;
-  color: white;
+  background-color: rgb(248, 248, 248);
+}
+
+#dropdownMenuButton1 {
+  background-color: rgb(228, 226, 226);
+  border-color: rgb(228, 226, 226);
+  border-style: solid;
+  //box-shadow: 5px 5px rgb (237, 236, 236);
+  color: black;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  border-radius: 0px 5px 5px 0px; //top left top right bottom right bottom left
+}
+
+#dropdownMenuButton1:hover {
+  background-color: white;
+}
+
+.refresh-arrow {
+  margin-left: 20px;
+  cursor: pointer;
+  color: rgb(74, 74, 74);
 }
 
 .image-meal-type {

@@ -53,4 +53,19 @@ export class MealPlanReader {
 
     return recipe;
   }
+
+  async refreshMealsPage() {
+    const allMeals = await $.ajax({
+      url: "/all-meals",
+      cache: false,
+      type: "GET",
+      success: function (allMeals) {
+        console.log(allMeals);
+      },
+      error: function (xhr, status, error) {
+        return error;
+      },
+    });
+    return allMeals;
+  }
 }
