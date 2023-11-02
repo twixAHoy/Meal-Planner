@@ -32,12 +32,14 @@ export class MealPlan {
   }
 
   searchByName() {
+    var mainContainer = $(".main-container");
     $(document).on("keydown", ".search-text-box", (event) => {
       if (event.key === "Enter") {
+        //mainContainer.empty;
         var mealName = $(event.target).val();
         this.MealPlanReader.searchByName(mealName)
           .then((data) => {
-            $(".main-container").html(data);
+            mainContainer.html(data);
           })
           .catch((error) => {
             console.error("Error: ", error);
@@ -47,12 +49,12 @@ export class MealPlan {
   }
 
   refreshMealsPage() {
+    var mainContainer = $(".main-container");
     $(document).on("click", ".refresh-arrow", (event) => {
       $(".meals-container").html.empty;
       this.MealPlanReader.refreshMealsPage()
         .then((data) => {
-          console.log("ping");
-          console.log("data");
+          mainContainer.html(data);
         })
         .catch((error) => {
           console.log(error);
