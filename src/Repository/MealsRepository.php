@@ -34,6 +34,7 @@ class MealsRepository extends ServiceEntityRepository
     public function showAllMeals()
     {     
         return $this->createQueryBuilder('meals')
+                ->orderBy('meals.meal_Name' )
                 ->getQuery()
                 ->execute();
     }

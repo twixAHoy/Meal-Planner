@@ -68,51 +68,44 @@ h2 {
 
 .meal-container {
   position: relative;
-  left: 5px;
+  left: 90px;
   width: 400px;
   height: 400px;
-  margin: 60px 8px 10px;
+  margin: 60px 10px;
   margin-right: 50px;
+  bottom: 40px;
   text-align: center;
-}
-
-.meal-container:nth-child(3n + 1) {
   border-style: solid;
-  border-color: rgb(249, 246, 250);
-  background-color: rgb(249, 246, 250);
-  box-shadow: 5px 10px rgb(231, 233, 231);
-}
-
-.meal-container:nth-child(3n + 2) {
-  border-style: solid;
-  border-color: rgb(247, 237, 247);
-  background-color: rgb(247, 237, 247);
-}
-
-.meal-container:nth-child(3n + 3) {
-  border-style: solid;
-  border-color: rgb(215, 212, 215);
-  background-color: rgb(215, 212, 215);
+  border-color: rgb(237, 235, 235);
+  box-shadow: 20px;
+  border-radius: 20px;
 }
 
 .meal-images {
   width: 250px;
   height: 250px;
   margin: auto;
-  margin-top: 65px;
+  margin-top: 50px;
   display: inline-block;
+  border-radius: 20px;
 }
 
 .meal-name-text {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
+  position: relative;
+  top: 20px;
+  left: 30px;
   width: 250px;
   background-color: white;
   color: black;
   padding-left: 20px;
   padding-right: 20px;
-  font-family: "Rubik Mono One", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.meal-name-text:hover {
+  opacity: 0.5;
 }
 
 a {
@@ -135,8 +128,8 @@ a {
   height: 50px;
   width: 400px;
   border: none;
-  border-bottom: 2px solid black;
-  font-family: "Rubik Mono One", sans-serif;
+  border-bottom: 1px solid black;
+  font-family: "Oswald", sans-serif;
 }
 
 .meal-type-button {
@@ -157,17 +150,17 @@ a {
 }
 
 .meal-type-button:nth-child(3n + 1) {
-  left: 300px;
+  left: 100px;
   top: 50px;
 }
 
 .meal-type-button:nth-child(3n + 2) {
-  left: 450px;
+  left: 250px;
   top: 50px;
 }
 
 .meal-type-button:nth-child(3n + 3) {
-  left: 600px;
+  left: 400px;
   top: 50px;
 }
 
