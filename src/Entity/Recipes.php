@@ -3,11 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\RecipesRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RecipesRepository::class)]
-#[ORM\Table(name:"recipes")]
+//#[ORM\Table(name:"recipes")]
 class Recipes
 {
     #[ORM\Id]

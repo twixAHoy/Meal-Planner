@@ -27,11 +27,11 @@ class MealsFormType extends AbstractType
                     'class' => 'meal-name-form'
                 ),
             ])
-            /*->add('meal_Rating', null,[
+            ->add('meal_type', TextType::class,[
                 'attr' => array (
-                    'class' => 'meal-rating-form'
+                    'class' => 'meal-type-form'
                 )
-            ])*/
+            ])
             ->add('meal_Photo', FileType::class,[
                 'attr' => array (
                     'class' => 'meal-photo-form'

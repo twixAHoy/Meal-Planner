@@ -100,19 +100,4 @@ class Meals
 
         return $this;
     }
-
-    // /**
-    //  * @return string|Recipe[]
-    //  */
-    // public function getRecipe(): string
-    // {
-    //     return $this->recipe;
-    // }
-
-    // public function setRecipe(string $recipe): self
-    // {
-    //    $this->recipe = $recipe;
-    //    return $this;
-    // }
-
 }

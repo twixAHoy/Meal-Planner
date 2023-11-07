@@ -9,8 +9,28 @@ export class MealPlanWriter {
       data: { recipeSteps: updatedRecipeSteps, mealID: mealID },
       contentType: "application/json",
       success: function (data) {
-        console.log(data);
+        // console.log(data);
       },
+      error: function (xhr, status, error) {
+        console.log("failed");
+        console.log(error, xhr);
+      },
+    });
+  }
+
+  async createNewRecipe(newRecipeSteps, mealID) {
+    console.log(typeof newRecipeSteps);
+    console.log(newRecipeSteps);
+    await $.ajax({
+      url: "/meal/" + mealID + "/new-recipe",
+      cache: false,
+      method: "POST",
+      data: {
+        recipeSteps: newRecipeSteps,
+        mealID: mealID,
+      },
+      contentType: "application/json",
+      success: function (data) {},
       error: function (xhr, status, error) {
         console.log("failed");
         console.log(error, xhr);

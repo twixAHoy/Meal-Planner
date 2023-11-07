@@ -13,6 +13,7 @@ export class MealPlan {
     this.saveRecipe();
     this.closeModal();
     this.refreshMealsPage();
+    this.createNewRecipe();
   }
 
   //function that is called on click
@@ -110,6 +111,40 @@ export class MealPlan {
           console.log(error);
         });
     });
+  }
+
+  createNewRecipe() {
+    $("#add-new-recipe-form-id")
+      .off("submit")
+      .on("submit", (event) => {
+        event.preventDefault();
+        var recipeDataToSave = [];
+        var mealID = $(".meal-id").val();
+        var data = $("#add-new-recipe-form-id").serialize();
+
+        /* $(".recipe-step").each(function (index) {
+          var recipeStep = $(this).val();
+          // $(".recipe-step-id").each(function () {
+          // var recipeStepId = $(this).val();
+          var recipeStepId = $(".recipe-step-id").eq(index).val();
+
+          recipeDataToSave.push({
+            recipeStepId: recipeStepId,
+            recipeStepDesc: recipeStep,
+          });
+          //});
+        });*/
+        // var jsonRecipeData = JSON.stringify(recipeDataToSave);
+        //console.log(typeof jsonRecipeData);
+
+        this.MealPlanWriter.createNewRecipe(data, mealID)
+          .then((data) => {
+            console.log("success");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
   }
 
   closeModal() {
