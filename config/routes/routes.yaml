@@ -24,12 +24,12 @@ search_by_meal_name:
   path: /all-meals/name/{mealName}
   methods: GET
   controller: App\Controller\MealPlanSearchByMealNameController::searchByMealName
-#add new recipe to meal
 
+#add new recipe to meal
 add_new_recipe:
   path: /meal/{mealID}/new-recipe
-  methods: [POST, GET]
-  controller: App\Controller\MealPlanAddNewRecipeToMealController::createNewRecipe2
+  methods: GET
+  controller: App\Controller\MealPlanAddNewRecipeToMealController::createNewRecipe
 
 #show recipe of a meal
 meal_recipe:

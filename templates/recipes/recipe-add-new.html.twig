@@ -18,8 +18,16 @@
                     <p class="step-id-recipe p-2">Step</p>
                     <p class="step-description p-2 px-3">Description<p>
                 </div>
-                    {{ form_start(addNewRecipeForm) }}
-                    
+                    {{ form_start(addNewRecipeForm,{'attr': {'class': 'ajax-form'}}) }}
+                    {{ form_widget(addNewRecipeForm) }}
+                
+                    <div class="recipe-modal-footer">
+                        {# <button type="submit" class="cancel-btn">Cancel</button> #}
+                        <a href="/meal/{{mealID}}/new-recipe" method="POST">Submit</a>
+                       {# <button type="submit" class="btn btn-success save-new-recipe-btn">SAVE</button> #}
+                    </div>
+                    {{ form_end(addNewRecipeForm) }}
+
                     <div class="add-next-step-div">
                         <button type="submit" class="add-next-step-btn">Add Next Step!</button>
                     </div>
@@ -28,11 +36,6 @@
                     <div class="notes-section-container">
 
                     </div>
-                    <div class="recipe-modal-footer">
-                        <button type="submit" class="cancel-btn">Cancel</button>
-                        <button type="submit" class="btn btn-success save-new-recipe-btn">SAVE</button>
-                    </div>
-                    {{ form_end(addNewRecipeForm) }}
                 </div>
             </div>
         </div>

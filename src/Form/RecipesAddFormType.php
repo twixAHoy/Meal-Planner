@@ -49,7 +49,7 @@ class RecipesAddFormType extends AbstractType
                                 font-family: "Oswald", sans-serif;
                                 font-size: medium;'
                 ),
-            ])            
+            ]) 
         ;
     }
 
@@ -57,7 +57,9 @@ class RecipesAddFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Recipes::class,
-            'attr' => ['id' => 'add-new-recipe-form-id']
+            'attr' => [
+                'id' => 'add-new-recipe-form-id'
+            ]
         ]);
     }
 }
