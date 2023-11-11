@@ -64,18 +64,18 @@ export class MealPlan {
   }
 
   showRecipe(mealID) {
+    $(".recipe-container").empty();
+    $("#new-recipe-modal").modal("hide");
     this.MealPlanReader.showRecipe(mealID)
       //.then((response) => response.json())
       .then((data) => {
         $(".recipe-container").append(data);
-        $(".modal").modal("show");
+        $("#new-recipe-modal").modal("show");
         $(".recipe-container").css("display", "block");
       })
       .catch((error) => {
         console.log(error);
       });
-    $(".recipe-container").empty();
-    $(".modal").modal("hide");
   }
 
   renderRecipeModal() {
