@@ -13,6 +13,7 @@ export class MealPlan {
     this.saveRecipe();
     this.closeModal();
     this.refreshMealsPage();
+    //this.createNewRecipe();
   }
 
   //function that is called on click
@@ -111,6 +112,67 @@ export class MealPlan {
         });
     });
   }
+
+  //currently not working
+  // createNewRecipe() {
+  //   $("#add-new-recipe-form-id").on("submit", (event) => {
+  //     event.preventDefault();
+  //     var recipeStepData = [];
+  //     var recipeStepID = [];
+  //     var mealID = $(".meal-id").val();
+  //     var data = $("#add-new-recipe-form-id").serialize();
+  //     //console.log(data);
+
+  //     // $(".recipe-step").each(function (index) {
+  //     //   var recipeStep = $(this).val();
+  //     //   // $(".recipe-step-id").each(function () {
+  //     //   // var recipeStepId = $(this).val();
+  //     //   var recipeStepId = $(".recipe-step-id").eq(index).val();
+
+  //     //   recipeStepData.push({
+  //     //     recipeStepDesc: recipeStep,
+  //     //     recipeStepId: recipeStepId,
+  //     //   });
+  //     //   //});
+  //     // });
+
+  //     //test 1
+  //     // var formData = $(".ajax-form").serializeArray()
+  //     // .forEach(function (item) {
+  //     //   formData[item.name] = item.value;
+  //     // });
+
+  //     //test 2
+  //     var formData = {};
+  //     $(".ajax-form :input").each(function () {
+  //       var name = $(this).attr("name");
+  //       var value = $(this).val();
+  //       if (name) {
+  //         var fieldName = name
+  //           .replace("recipes_add_form[", "")
+  //           .replace("]", "");
+  //         formData[fieldName] = value;
+  //       }
+  //     });
+
+  //     // var jsonData = {
+  //     //   recipes_add_form: formData,
+  //     // };
+
+  //     //formData["recipes_add_form[mealID]"] = mealID;
+  //     console.log(formData);
+  //     var jsonRecipeData = JSON.stringify(formData);
+  //     //console.log(jsonRecipeData);
+
+  //     this.MealPlanWriter.createNewRecipe(jsonRecipeData, mealID)
+  //       .then((data) => {
+  //         console.log("success");
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   });
+  // }
 
   closeModal() {
     $("#close-recipe-modal").on("click", function (event) {

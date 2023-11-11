@@ -9,17 +9,22 @@
                 </button>
             </div>
             <div class="modal-body recipe-steps-container">
-            {% for r in recipe %}
-                {% if r.recipeSteps is not null %}
-                    <input type="text" class="form-control recipe-step" value="{{ r.recipeSteps }}"></input>
-                    <input type="hidden" value="{{r.recipeStepID}}" class="recipeStepID"></input>
-                    <input type="hidden" value="{{r.mealID}}" class="mealID"></input>
-                    <br>   
-                {% else %}
-                    <p>add new recipe</p>
-                {% endif %}
-            
-            {% endfor %}
+            {% if recipe is empty%}
+                
+                
+            {% else %}
+                {% for r in recipe %}
+                    {% if r.recipeSteps is not null %}
+                        <input type="text" class="form-control recipe-step" value="{{ r.recipeSteps }}"></input>
+                        <input type="hidden" value="{{r.recipeStepID}}" class="recipeStepID"></input>
+                        <input type="hidden" value="{{r.mealID}}" class="mealID"></input>
+                        <br>   
+                    {% else %}
+                        <p>add new recipe</p>
+                    {% endif %}
+                
+                {% endfor %}
+            {% endif %}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="close-recipe-modal" data-dismiss="modal">Close</button>

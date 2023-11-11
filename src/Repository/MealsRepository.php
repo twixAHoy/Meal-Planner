@@ -6,11 +6,7 @@ use App\Entity\Meals;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityRepository;
 use RuntimeException;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Twig\Error\RuntimeError;
 
 /**
  * @extends ServiceEntityRepository<Meals>

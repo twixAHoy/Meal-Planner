@@ -262,14 +262,70 @@ a {
   margin-left: 100px;
 }
 
+/*recipe modal*/
 .modal-container {
   height: 500px;
 }
-/*navbar*/
 
-/* Overriding bootstrap using Sass
-
-.btn-success {
-  position: absolute;
+#recipe-modal-title {
+  font-family: "Oswald", sans-serif !important;
+  font-size: xx-large !important;
 }
-*/
+
+.steps-description-header {
+  font-family: "Oswald", sans-serif;
+  font-size: large;
+}
+
+.save-new-recipe-btn {
+  background-color: #809839 !important;
+  border-color: #809839 !important;
+  width: 150px !important;
+  border-radius: 18px !important;
+  font-family: "Oswald", sans-serif !important;
+  font-size: medium !important;
+}
+
+.save-new-recipe-btn:hover {
+  background-color: #9db556 !important;
+}
+
+.cancel-btn {
+  border-style: none;
+  background: white;
+  border-bottom: 1px solid rgb(176, 175, 175);
+  color: rgb(176, 175, 175);
+  font-family: "Oswald", sans-serif !important;
+  font-size: large;
+  position: relative;
+  right: 15px;
+}
+
+.cancel-btn:hover {
+  color: rgb(240, 238, 238);
+}
+
+.recipe-modal-footer {
+  position: absolute;
+  padding-top: 200px !important;
+  padding-left: 240px !important;
+}
+
+.add-next-step-btn {
+  border-style: none;
+  border-bottom: 1px solid rgb(240, 238, 238);
+  font-family: "Oswald", sans-serif !important;
+  font-size: small;
+  font-style: italic;
+  margin-left: 60px;
+  position: relative;
+  bottom: 15px;
+}
+
+.add-next-step-btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.recipe-step::placeholder {
+  font-style: italic;
+}

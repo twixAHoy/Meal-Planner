@@ -9,7 +9,7 @@ export class MealPlanWriter {
       data: { recipeSteps: updatedRecipeSteps, mealID: mealID },
       contentType: "application/json",
       success: function (data) {
-        console.log(data);
+        // console.log(data);
       },
       error: function (xhr, status, error) {
         console.log("failed");
@@ -17,4 +17,28 @@ export class MealPlanWriter {
       },
     });
   }
+
+  //currently not working
+  // async createNewRecipe(data, mealID) {
+  //   // console.log(data);
+  //   //var form = new FormData(data[0]);
+  //   //console.log(form);
+  //   $.post({
+  //     url: "/meal/" + mealID + "/new-recipe",
+  //     cache: false,
+  //     method: "POST",
+  //     data: {
+  //       data: data,
+  //       mealID: mealID,
+  //     },
+
+  //     //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+  //     //contentType: "application/json",
+  //     success: function (data) {},
+  //     error: function (xhr, status, error) {
+  //       console.log("failed");
+  //       console.log(error, xhr);
+  //     },
+  //   });
+  // }
 }
