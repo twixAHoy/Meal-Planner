@@ -22,7 +22,7 @@ class MealPlanShowRecipeController extends AbstractController{
     public function showRecipeForSpecificMeal(Request $request){
         $mealID = $request->attributes->get('id');
         $response = $this->recipeRepo->getRecipeSteps($mealID);
-
+        var_dump($response);
         if(!empty($response)){
         return $this->render('recipes/recipe-meal-show.html.twig', [
             'recipe' => $response

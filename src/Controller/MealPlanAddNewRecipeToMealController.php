@@ -18,31 +18,26 @@ class MealPlanAddNewRecipeToMealController extends AbstractController
         $this->recipeRepository = $recipesRepository;
         $this->recipesEntity = new Recipes();
     }
-//currently not working
-    #[Route('/meal/{mealID}/new-recipe', name:'add_new_recipe', methods:['POST'])]
-    public function createNewRecipe(Request $request, string $mealID): Response{    
+
+    #[Route('/meal/{mealID}/new-recipe', name:'add_new_recipe', methods:['GET','POST'])]
+    public function createNewRecipe(Request $request, string $mealID): Response{  
         $recipe = new Recipes();
+        $recipe->setMealID($mealID);
         $form = $this->createForm(RecipesAddFormType::class, $recipe);
         $form->handleRequest($request);
-        var_dump($request->getContent());
-            if($form->isSubmitted() && $form->isValid()){
-                var_dump("submitted");
-                //var_dump($form->getErrors());
-                $newRecipeData = $form->getData();
-                var_dump($newRecipeData);
-                // if(is_null($newRecipeData['recipeStep'])){
-                //     throw new RuntimeException();
-                // }
-                // try{
-                //     $this->recipeRepository->addNewRecipeToMeal($newRecipeData, $mealID);
-                //     $response = new Response('success', Response::HTTP_OK);
-                //     $response->headers->set('Content-Type', 'text/plain');
-                //     return $response;
-                // }catch(Exception $e){
-                //     return new RuntimeException($e->getMessage());
-                // }
+        
+        if($form->isSubmitted() && $form->isValid()){ 
+            $newRecipeData = $form->getData();
+            try{
+                $this->recipeRepository->addNewRecipeToMeal($newRecipeData);
+                $response = new Response('success', Response::HTTP_OK);
+                $response->headers->set('Content-Type', 'text/plain');
+                return $response;
+            }catch(Exception $e){
+                return new RuntimeException($e->getMessage());
             }
-       // }
+           return $this->redirectToRoute('show_meals');
+        }
         return $this->render('recipes/recipe-add-new.html.twig',[
             'addNewRecipeForm' => $form,
             'mealID' => $mealID

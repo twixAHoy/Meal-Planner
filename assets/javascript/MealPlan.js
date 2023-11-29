@@ -10,10 +10,11 @@ export class MealPlan {
     this.searchByType();
     this.searchByName();
     this.renderRecipeModal();
-    this.saveRecipe();
+    //this.updateRecipe();
     this.closeModal();
     this.refreshMealsPage();
-    //this.createNewRecipe();
+    // this.createNewRecipe();
+    this.updateFormAction();
   }
 
   //function that is called on click
@@ -65,13 +66,15 @@ export class MealPlan {
 
   showRecipe(mealID) {
     $(".recipe-container").empty();
-    $("#new-recipe-modal").modal("hide");
+    $(".recipe-modal").modal("hide");
     this.MealPlanReader.showRecipe(mealID)
       //.then((response) => response.json())
       .then((data) => {
         $(".recipe-container").append(data);
-        $("#new-recipe-modal").modal("show");
+        $(".recipe-modal").modal("show");
         $(".recipe-container").css("display", "block");
+        //the below is only for if it's a new recipe. We may want to combine the routes for this one.
+        this.updateFormAction(mealID);
       })
       .catch((error) => {
         console.log(error);
@@ -90,81 +93,25 @@ export class MealPlan {
     });
   }
 
-  saveRecipe() {
-    $(document).on("click", ".save-recipe", (event) => {
-      var recipeDataToSave = [];
-      var mealID = $(".meal-id").val();
-      $(".recipe-step").each(function () {
-        var recipeStep = $(this).val();
-        var recipeStepId = $(this).next(".recipeStepID").val();
-        recipeDataToSave.push({
-          recipeStepId: recipeStepId,
-          recipeStepDesc: recipeStep,
-        });
-      });
-      var jsonRecipeData = JSON.stringify(recipeDataToSave);
-      this.MealPlanWriter.saveRecipe(jsonRecipeData, mealID)
-        .then((data) => {
-          console.log("success");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+  updateFormAction(mealID) {
+    let formAction = "/meal/" + mealID + "/new-recipe";
+    $("#add-new-recipe-form-id").attr("action", formAction);
   }
 
-  //currently not working
-  // createNewRecipe() {
-  //   $("#add-new-recipe-form-id").on("submit", (event) => {
-  //     event.preventDefault();
-  //     var recipeStepData = [];
-  //     var recipeStepID = [];
+  // updateRecipe() {
+  //   $(document).on("click", ".save-recipe", (event) => {
+  //     var recipeDataToSave = [];
   //     var mealID = $(".meal-id").val();
-  //     var data = $("#add-new-recipe-form-id").serialize();
-  //     //console.log(data);
-
-  //     // $(".recipe-step").each(function (index) {
-  //     //   var recipeStep = $(this).val();
-  //     //   // $(".recipe-step-id").each(function () {
-  //     //   // var recipeStepId = $(this).val();
-  //     //   var recipeStepId = $(".recipe-step-id").eq(index).val();
-
-  //     //   recipeStepData.push({
-  //     //     recipeStepDesc: recipeStep,
-  //     //     recipeStepId: recipeStepId,
-  //     //   });
-  //     //   //});
-  //     // });
-
-  //     //test 1
-  //     // var formData = $(".ajax-form").serializeArray()
-  //     // .forEach(function (item) {
-  //     //   formData[item.name] = item.value;
-  //     // });
-
-  //     //test 2
-  //     var formData = {};
-  //     $(".ajax-form :input").each(function () {
-  //       var name = $(this).attr("name");
-  //       var value = $(this).val();
-  //       if (name) {
-  //         var fieldName = name
-  //           .replace("recipes_add_form[", "")
-  //           .replace("]", "");
-  //         formData[fieldName] = value;
-  //       }
+  //     $(".recipe-step").each(function () {
+  //       var recipeStep = $(this).val();
+  //       var recipeStepId = $(this).next(".recipeStepID").val();
+  //       recipeDataToSave.push({
+  //         recipeStepId: recipeStepId,
+  //         recipeStepDesc: recipeStep,
+  //       });
   //     });
-
-  //     // var jsonData = {
-  //     //   recipes_add_form: formData,
-  //     // };
-
-  //     //formData["recipes_add_form[mealID]"] = mealID;
-  //     console.log(formData);
-  //     var jsonRecipeData = JSON.stringify(formData);
-  //     //console.log(jsonRecipeData);
-
-  //     this.MealPlanWriter.createNewRecipe(jsonRecipeData, mealID)
+  //     var jsonRecipeData = JSON.stringify(recipeDataToSave);
+  //     this.MealPlanWriter.saveRecipe(jsonRecipeData, mealID)
   //       .then((data) => {
   //         console.log("success");
   //       })

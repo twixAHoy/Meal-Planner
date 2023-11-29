@@ -28,7 +28,7 @@ search_by_meal_name:
 #add new recipe to meal
 add_new_recipe:
   path: /meal/{mealID}/new-recipe
-  methods: GET
+  methods: [GET, POST]
   controller: App\Controller\MealPlanAddNewRecipeToMealController::createNewRecipe
 
 #show recipe of a meal

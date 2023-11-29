@@ -26,24 +26,12 @@ class RecipesRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipes::class);
     }
 
-    public function addNewRecipeToMeal($newRecipeData, $mealID){
-        if(is_array($newRecipeData) || is_object($newRecipeData)){
-            foreach ($newRecipeData as $data) {
-                $newRecipe = new Recipes();
-                $newRecipeStepId = $data['recipeStepId'];
-                $newRecipeDescription = $data['recipeStepDesc'];
-
-                $newRecipe->setMealID($mealID);
-                $newRecipe->setRecipeStepID($newRecipeStepId);
-                $newRecipe->setRecipeStep($newRecipeDescription);
-
-                try{
-                    $this->entityManager->persist($newRecipe);
-                    $this->entityManager->flush();
-                }catch(Exception $e){
-                    return $this->logger->error('Exception occurred: ' . $e->getMessage());
-                }    
-            }
+    public function addNewRecipeToMeal($newRecipe){
+        try{
+            $this->entityManager->persist($newRecipe);
+            $this->entityManager->flush();
+        }catch(Exception $e){
+            return $this->logger->error('Exception occurred: ' . $e->getMessage());
         }  
     }
 
