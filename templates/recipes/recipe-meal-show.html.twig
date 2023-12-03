@@ -1,35 +1,47 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+
  <!-- Modal Bootstrap v5 TODO: Move this to another file as not to crowd this file-->
-    <div class="modal fade" id="recipe-modal" tabindex="-1" role="dialog" aria-labelledby="recipe-modal-title" aria-hidden="true">
+    <div class="modal fade recipe-modal" id="existing-recipe-modal" tabindex="-1" role="dialog" aria-labelledby="recipe-modal-title" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-container">
             <div class="modal-header">
                 <h5 class="modal-title" id="recipe-modal-title">Recipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
             </div>
-            <div class="modal-body recipe-steps-container">
-            {% if recipe is empty%}
-                
-                
-            {% else %}
-                {% for r in recipe %}
-                    {% if r.recipeSteps is not null %}
-                        <input type="text" class="form-control recipe-step" value="{{ r.recipeSteps }}"></input>
-                        <input type="hidden" value="{{r.recipeStepID}}" class="recipeStepID"></input>
-                        <input type="hidden" value="{{r.mealID}}" class="mealID"></input>
-                        <br>   
+            <div class="modal-body">
+                <div class="recipe-steps-container">
+                    {% if recipe is empty%}
                     {% else %}
-                        <p>add new recipe</p>
+                        {% for r in recipe %}
+                            {# {% if r.recipeSteps is not null %} #}
+                                <div class="existing-recipe-steps">
+                                    <input type="number" value="{{r.recipeStepID}}" class="recipe-step-id" min="1"></input>
+                                    <input type="text" class="form-control recipe-step" value="{{ r.recipeSteps }}"></input>
+                                    <input type="hidden" value="{{r.mealID}}" class="mealID"></input>
+                                </div>
+                                <br>   
+                            {# {% else %}
+                                <p>add new recipe</p>
+                            {% endif %} #}
+                        
+                        {% endfor %}
                     {% endif %}
-                
-                {% endfor %}
-            {% endif %}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="close-recipe-modal" data-dismiss="modal">Close</button>
-                <button type="button" class="btn save-recipe bg-success">Save changes</button>
-            </div>
+                </div>
+                <div class="add-next-step-div">
+                            <button type="submit" class="add-next-step-btn">Add Next Step!</button>
+                        </div>
+
+                        <!--This div will have to go inside the form at some point -->
+                        <div class="notes-section-container">
+
+                        </div>
+                </div>       
+                <div class="modal-footer">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-success save-new-recipe-btn">SAVE</button>
+                </div>
             </div>
         </div>
     </div>
+{% endblock %}

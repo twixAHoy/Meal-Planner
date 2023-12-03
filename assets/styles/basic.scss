@@ -329,3 +329,29 @@ a {
 .recipe-step::placeholder {
   font-style: italic;
 }
+
+.existing-recipe-steps {
+  display: flex;
+}
+
+//these are defined in the add new recipe form as well.
+.recipe-step-id {
+  width: 30px;
+  border-style: none;
+  border-bottom: 1px solid black;
+  bottom: 4px;
+  left: 5px;
+  position: relative;
+  font-family: "Oswald", sans-serif;
+  font-size: medium;
+}
+
+.recipe-step {
+  border-style: none;
+  border-bottom: 1px solid grey;
+  margin-left: 25px;
+  width: 300px;
+  position: relative;
+  font-family: "Oswald", sans-serif;
+  font-size: medium;
+}
