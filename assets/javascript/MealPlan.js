@@ -15,6 +15,7 @@ export class MealPlan {
     this.refreshMealsPage();
     // this.createNewRecipe();
     this.updateFormAction();
+    this.addNextInputForRecipe();
   }
 
   //function that is called on click
@@ -96,6 +97,24 @@ export class MealPlan {
   updateFormAction(mealID) {
     let formAction = "/meal/" + mealID + "/new-recipe";
     $("#add-new-recipe-form-id").attr("action", formAction);
+  }
+
+  addNextInputForRecipe() {
+    $(".add-next-step-btn").on("click", (e) => {
+      e.preventDefault();
+      console.log("here");
+      let newRecipeStepID = $("<input>").attr({
+        type: "number",
+        class: "recipe-step-id",
+      });
+
+      let newInputRecipeStep = $("<input>").attr({
+        type: "text",
+        class: "form-control recipe-step",
+      });
+
+      $(".recipe-steps-container").append(newRecipeStepID, newInputRecipeStep);
+    });
   }
 
   // updateRecipe() {

@@ -25,7 +25,6 @@ class MealPlanAddMealController extends AbstractController
         $form = $this->createForm(MealsFormType::class, $meal);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            var_dump($form->getData()); die();
             try{
                 $newMeal = $form->getData();
                 $imagePath = $form->get('meal_Photo')->getData();

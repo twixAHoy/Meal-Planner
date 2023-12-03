@@ -9,23 +9,25 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="recipe-modal-title">Recipe</h5>
             </div>
-            <div class="modal-body recipe-steps-container">
-            {% if recipe is empty%}
-            {% else %}
-                {% for r in recipe %}
-                    {% if r.recipeSteps is not null %}
-                        <div class="existing-recipe-steps">
-                            <input type="number" value="{{r.recipeStepID}}" class="recipe-step-id" min="1"></input>
-                            <input type="text" class="form-control recipe-step" value="{{ r.recipeSteps }}"></input>
-                            <input type="hidden" value="{{r.mealID}}" class="mealID"></input>
-                        </div>
-                        <br>   
+            <div class="modal-body">
+                <div class="recipe-steps-container">
+                    {% if recipe is empty%}
                     {% else %}
-                        <p>add new recipe</p>
+                        {% for r in recipe %}
+                            {# {% if r.recipeSteps is not null %} #}
+                                <div class="existing-recipe-steps">
+                                    <input type="number" value="{{r.recipeStepID}}" class="recipe-step-id" min="1"></input>
+                                    <input type="text" class="form-control recipe-step" value="{{ r.recipeSteps }}"></input>
+                                    <input type="hidden" value="{{r.mealID}}" class="mealID"></input>
+                                </div>
+                                <br>   
+                            {# {% else %}
+                                <p>add new recipe</p>
+                            {% endif %} #}
+                        
+                        {% endfor %}
                     {% endif %}
-                
-                {% endfor %}
-            {% endif %}
+                </div>
                 <div class="add-next-step-div">
                             <button type="submit" class="add-next-step-btn">Add Next Step!</button>
                         </div>
@@ -34,8 +36,7 @@
                         <div class="notes-section-container">
 
                         </div>
-                </div>
-                   
+                </div>       
                 <div class="modal-footer">
                     <button type="button" class="cancel-btn">Cancel</button>
                     <button type="submit" class="btn btn-success save-new-recipe-btn">SAVE</button>
