@@ -42,10 +42,19 @@
                         <!--<div class="col-sm image-column">-->
                         <img src="{{ meal.meal_Photo }}" alt="" class="meal-images">   
                         <input type="hidden" value={{ meal.id }} class="meal-id"/>
-                        <div class="meal-name-text">
-                                {# <a href="/meal/{{meal.id}}/new-recipe">{{ meal.meal_Name }}</a>  #}
+                        <div class="meal-name-text-container flex">
+                            <div class="meal-name-text">
                                {{ meal.meal_Name }}
+                            </div>
                         </div>
+                         {# <div class="cost-of-meal">
+                             <ul class="row no-bullets">
+                                <li class="col-sm dollar-sign" data-value="1">$</li>
+                                <li class="col-sm dollar-sign" data-value="2">$</li>
+                                <li class="col-sm dollar-sign" data-value="3">$</li>
+                             </ul>
+                            </div> #}
+                         
                     </div>   
             {% endfor %}       
             </div> 

@@ -76,7 +76,8 @@ h2 {
   bottom: 40px;
   text-align: center;
   border-style: solid;
-  border-color: rgb(237, 235, 235);
+  background-color: rgb(251, 248, 248);
+  border-color: rgb(251, 248, 248);
   box-shadow: 20px;
   border-radius: 20px;
 }
@@ -85,9 +86,9 @@ h2 {
   width: 250px;
   height: 250px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   display: inline-block;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .meal-name-text {
@@ -354,4 +355,26 @@ a {
   position: relative;
   font-family: "Oswald", sans-serif;
   font-size: medium;
+}
+
+/*cost of meal styling*/
+.cost-of-meal {
+  position: relative;
+  padding-top: 30px;
+  right: 10px;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  // font-size: x-large;
+}
+
+.cost-of-meal:hover {
+  opacity: 0.5;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+}
+
+.dollar-sign {
+  margin-left: 5px !important;
 }
